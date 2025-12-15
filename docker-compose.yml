@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   backend:
     build: ./backend
@@ -12,7 +10,7 @@ services:
       - mongodb
     env_file:
       - ./backend/.env
-    command: symfony server:start --no-tls --allow-http --port=8000
+    command: php -S 0.0.0.0:8000 -t public
 
   frontend:
     build: ./frontend

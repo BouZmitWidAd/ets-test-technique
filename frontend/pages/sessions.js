@@ -32,7 +32,6 @@ export default function Sessions() {
 
   const updateSession = async (sessionId) => {
     alert("Update session (placeholder TP)");
-    // Optionnel : ouvrir un modal ou page update
   };
 
   return (
