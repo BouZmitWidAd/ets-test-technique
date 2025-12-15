@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    container_name: ets_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/var/www/html
+    depends_on:
+      - mongodb
+    env_file:
+      - ./backend/.env
+    command: symfony server:start --no-tls --allow-http --port=8000
+
+  frontend:
+    build: ./frontend
+    container_name: ets_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    env_file:
+      - ./frontend/.env.local
+    command: npm run dev
+
+  mongodb:
+    image: mongo:7
+    container_name: ets_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
