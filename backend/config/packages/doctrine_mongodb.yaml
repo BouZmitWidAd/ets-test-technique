@@ -1,0 +1,26 @@
+# config/packages/doctrine_mongodb.yaml
+
+doctrine_mongodb:
+    # 1. SECTION CRITIQUE : Les connexions (clients)
+    connections:
+        # Nommez la connexion 'default'
+        default:
+            # Utilisez 'server' pour l'URI complète avec les variables d'environnement
+            server: '%env(DATABASE_URL)%'
+            # Une section 'options' vide est souvent requise
+            options: {}
+
+    # 2. Gestionnaires de documents (Document Managers)
+    document_managers:
+        default:
+            # Nom de la base de données à utiliser (optionnel si dans l'URI)
+            database: '%env(MONGO_DB_NAME)%' 
+
+            # Mappage de vos documents
+            mappings:
+                App:
+                    # Gardez 'attribute' si vous utilisez PHP 8+ et #[Document]
+                    type: attribute 
+                    dir: '%kernel.project_dir%/src/Document' 
+                    prefix: 'App\Document'
+                    alias: App

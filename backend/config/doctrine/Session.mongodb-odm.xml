@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
+                        http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
+
+    <document name="App\Document\Session" collection="sessions">
+        <field fieldName="langue" type="string" />
+        <field fieldName="date" type="date" />
+        <field fieldName="heure" type="string" />
+        <field fieldName="lieu" type="string" />
+        <field fieldName="nombreDePlaces" type="int" />
+        <id fieldName="id" type="string" strategy="auto" />
+    </document>
+</doctrine-mongo-mapping>
