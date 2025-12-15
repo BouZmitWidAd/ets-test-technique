@@ -1,9 +1,6 @@
 # Backend
 /backend_ets_reservationlanguages/vendor/
 /backend_ets_reservationlanguages/var/
-.env
-.env.*
-!.env.example
 
 # Frontend
 /frontend/node_modules/
